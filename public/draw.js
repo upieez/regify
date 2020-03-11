@@ -16,7 +16,7 @@ drawButton.addEventListener("click", function(event){
             let randomNumber = Math.floor(Math.random() * winnerList.length );
             showAttendees.innerHTML = `<strong>${winnerList[randomNumber].name}</strong> is the winner!`
             setTimeout(function(){
-                messagePopup.innerHTML = `<div class="pyro"><div class="before"></div> <div class="after"></div></div>CONGRATULATIONS!`
+                messagePopup.innerHTML = `<div class="pyro"><div class="before"></div> CONGRATULATIONS!<div class="after"></div></div>`
             },1000);
             clearInterval(interval);
             return;
