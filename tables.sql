@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS companies (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL
 );
 
