@@ -20,7 +20,6 @@ module.exports = (db) => {
         let data = {
             userid: request.cookies.userid
         }
-        console.log("-----------------")
         let callBack = (error,result) => {
             if (error) {
                 response.send("error in events")
@@ -130,7 +129,31 @@ module.exports = (db) => {
     };
 
     let settings = (request,response) => {
-        response.render('regify/settings')
+        const data = {
+            id: request.params.id
+        }
+        let callBack = (error,eventResult) => {
+            if (error) {
+                response.send("error in callBack");
+            } else {
+                response.render('regify/settings', {eventResult} )
+            }
+        }
+        db.regify.getEvent(callBack,data)
+    }
+
+    let changeSettings = (request,response) => {
+        let data = {
+            name: request.body.name,
+            id: request.params.id
+        }
+
+        let callBack = (error,result) => {
+            console.log(result);
+            response.redirect(`/events/${request.params.id}`)
+        }
+
+        db.regify.changeSettings(callBack,data)
     }
 
   /**
@@ -149,6 +172,7 @@ module.exports = (db) => {
     viewEvent: viewEvent,
     addAttendee: addAttendee,
     scanAttendee: scanAttendee,
+    changeSettings: changeSettings,
   };
 
 }

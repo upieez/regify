@@ -46,8 +46,8 @@ class View extends React.Component {
             </div>
             <div className="row mt-3">
               <div className="col-sm-4">
-                <div class="card bg-danger">
-                    <div class="card-body">
+                <div className="card bg-danger">
+                    <div className="card-body">
                         <h4 class="card-title">Stats <br/> <i class="fas fa-chart-bar"></i></h4>
                         <p class="card-text">View all statistics of the event information here</p>
                         <a href="#" class="stretched-link"></a>

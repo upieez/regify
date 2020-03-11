@@ -26,6 +26,7 @@ module.exports = (app, allModels) => {
   app.post('/events', regifyControllerCallbacks.addEvent);
   app.get('/events/:id', regifyControllerCallbacks.viewEvent);
   app.get('/events/:id/settings', regifyControllerCallbacks.settings);
+  app.put('/events/:id/settings', regifyControllerCallbacks.changeSettings);
   app.get('/events/:id/scan', regifyControllerCallbacks.scan);
   app.post('/events/:id/scan', regifyControllerCallbacks.scanAttendee);
   app.get('/events/:id/attendees', regifyControllerCallbacks.attendees);

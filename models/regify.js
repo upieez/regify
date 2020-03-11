@@ -129,6 +129,25 @@ module.exports = (dbPoolInstance) => {
         });
     };
 
+    const changeSettings = (callback,data) => {
+
+        let query = 'UPDATE events SET name = $1 WHERE id = $2 RETURNING *'
+
+        let values = [data.name,parseInt(data.id)]
+
+        dbPoolInstance.query(query, values, (error,queryResult) => {
+            if (error){
+                callback(error,null);
+            } else {
+                if (queryResult.rows.length > 0){
+                    callback(null,queryResult);
+                } else {
+                    callback(null,null);
+                }
+            }
+        });
+    };
+
   return {
     getAll: getAll,
     getAllEvents: getAllEvents,
@@ -137,5 +156,6 @@ module.exports = (dbPoolInstance) => {
     getAllAttendees: getAllAttendees,
     addAttendee: addAttendee,
     scanAttendee: scanAttendee,
+    changeSettings: changeSettings,
   };
 };
