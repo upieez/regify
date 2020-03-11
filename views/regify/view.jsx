@@ -8,6 +8,7 @@ class View extends React.Component {
         const scanUrl = "/events/" + this.props.eventResult[0].id + "/scan";
         const attendeesURL = "/events/" + this.props.eventResult[0].id + "/attendees";
         const settingsURL = '/events/' + this.props.eventResult[0].id + '/settings'
+        const drawURL = '/events/' + this.props.eventResult[0].id + '/draw'
         return (
             <Layout>
             <br/>
@@ -30,7 +31,7 @@ class View extends React.Component {
                   <div class="card-body">
                     <h4 class="card-title">Luck Draw <br/> <i class="fas fa-dice"></i> </h4>
                     <p class="card-text">Main stage lucky draw during event day here. Make sure to setup before starting</p>
-                    <a href="#" class="stretched-link"></a>
+                    <a href={drawURL} class="stretched-link"></a>
                   </div>
                 </div>
               </div>

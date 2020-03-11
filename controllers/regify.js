@@ -156,6 +156,10 @@ module.exports = (db) => {
         db.regify.changeSettings(callBack,data)
     }
 
+    let draw = (request,response) => {
+        response.render('regify/draw')
+    }
+
   /**
    * ===========================================
    * Export controller functions as a module
@@ -173,6 +177,7 @@ module.exports = (db) => {
     addAttendee: addAttendee,
     scanAttendee: scanAttendee,
     changeSettings: changeSettings,
+    draw: draw,
   };
 
 }

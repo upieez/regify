@@ -32,4 +32,5 @@ module.exports = (app, allModels) => {
   app.get('/events/:id/attendees', regifyControllerCallbacks.attendees);
   app.get('/events/:id/attendees.json', regifyControllerCallbacks.attendeesJSON);
   app.post('/events/:id/attendees', regifyControllerCallbacks.addAttendee);
+  app.get('/events/:id/draw', regifyControllerCallbacks.draw);
 };
