@@ -3,6 +3,7 @@ var newPathName = pathName.split("/");
 
 const drawButton = document.querySelector("#drawButton");
 const showAttendees = document.querySelector(".showWinner");
+const messagePopup = document.querySelector(".message");
 
 drawButton.addEventListener("click", function(event){
     var responseHandler = function() {
@@ -13,14 +14,16 @@ drawButton.addEventListener("click", function(event){
         var interval = setInterval(function(){
         if(new Date().getTime() - startTime > 7000){
             let randomNumber = Math.floor(Math.random() * winnerList.length );
-            showAttendees.innerHTML = `<div class="pyro"> <div class="before"></div> <div class="after"></div></div><strong>${winnerList[randomNumber].name}</strong> is the winner!`
-            document
+            showAttendees.innerHTML = `<strong>${winnerList[randomNumber].name}</strong> is the winner!`
+            setTimeout(function(){
+                messagePopup.innerHTML = `<div class="pyro"><div class="before"></div> <div class="after"></div></div>CONGRATULATIONS!`
+            },1000);
             clearInterval(interval);
             return;
         }
         let randomNumber = Math.floor(Math.random() * winnerList.length);
             showAttendees.innerHTML = `<strong>${winnerList[randomNumber].name}</strong>`
-        }, 100);
+        }, 150);
 
         // var timesRun = 0;
         // var interval = setInterval(function(){

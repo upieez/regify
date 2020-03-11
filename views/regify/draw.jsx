@@ -11,6 +11,7 @@ class Draw extends React.Component {
       <hr/>
       <button className="btn btn-warning btn-lg mt-3" id="drawButton">DRAW</button>
       <div className="showWinner display-1 mt-5"></div>
+      <div className="message display-1 mt-3"></div>
       <script src="/draw.js"></script>
       </Layout>
     );
